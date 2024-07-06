@@ -13,8 +13,12 @@ from langchain.prompts import PromptTemplate
 # Load environment variables
 load_dotenv()
 
+# Define your Google API key here
+my_api_key = "AIzaSyC4LtjuN9AllqJ8c8XuIcJWJq3l7-BnOGM"
+
 # Configure the generative AI with your API key
-genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
+genai.configure(api_key=my_api_key)
+
 
 # Define the generative models
 qa_model = genai.GenerativeModel("gemini-pro")
