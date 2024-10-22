@@ -22,7 +22,7 @@ genai.configure(api_key=my_api_key)
 
 # Define the generative models
 qa_model = genai.GenerativeModel("gemini-pro")
-image_to_text_model = genai.GenerativeModel("gemini-pro-vision")
+image_to_text_model = genai.GenerativeModel("gemini-1.5-flash")
 text_summarizer_model = genai.GenerativeModel("gemini-1.0-pro-latest")  # Added text summarizer model
 
 # Streamlit app configuration
@@ -113,7 +113,7 @@ def setup_conversational_chain():
     Question: \n{question}\n
     Answer:
     """
-    model = ChatGoogleGenerativeAI(model="gemini-1.5-pro", temperature=0.6)
+    model = ChatGoogleGenerativeAI(model="gemini-1.5-flash", temperature=0.6)
     prompt = PromptTemplate(template=prompt_template, input_variables=["context", "question"])
     chain = load_qa_chain(model, chain_type="stuff", prompt=prompt)
     return chain
